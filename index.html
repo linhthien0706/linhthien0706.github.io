@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="shortcut icon" type="image/x-icon" href="./Cake-512.png" />
+  <title>Happy Birthday</title>
+  <link href="https://fonts.googleapis.com/css?family=Dancing+Script&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+  <div id="hello">
+    <div class="shader"></div>
+    <section class="container mt-5">
+      <h1 class="title">
+        <span>Hi, con</span>
+        <span>Chào mừng</span>
+        <span>con tới đây</span>
+      </h1>
+
+      <h2 class="title">
+        <span>Đây là</span>
+        <span>Món quà Ba</span>
+        <span>Tặng con</span>
+      </h2>
+    </section>
+  </div>
+
+  <svg viewbox="0 0 960 300" id="loi-chuc">
+    <symbol id="s-text">
+      <text text-anchor="middle" x="50%" y="40%">
+        Chúc mừng
+        Sinh nhật Con yêu
+      </text>
+    </symbol>
+
+    <g class="g-ants">
+      <use xlink:href="#s-text" class="text-copy"></use>
+      <use xlink:href="#s-text" class="text-copy"></use>
+      <use xlink:href="#s-text" class="text-copy"></use>
+      <use xlink:href="#s-text" class="text-copy"></use>
+      <use xlink:href="#s-text" class="text-copy"></use>
+    </g>
+  </svg>
+
+  <div class="heart">
+    <div class="part"></div>
+  </div>
+  <div id="table">
+      <div id="centeralign">
+        <h1 class="mx-5" id="chuc-mung-18">Chúc mừng con yêu đã 18 tuổi</h1>
+        <p id="hiding">
+          Mong những điều tốt đẹp nhất luôn bên cạnh con, Hãy chinh phục trường Đại học mà con muốn con nhé!
+        </p>
+      </div>
+  </div>
+  <footer id="author">
+    - Form Papa with <span id="love">LOVE</span> -
+  </footer>
+  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+  <script>
+    $('#hello').show();
+    $('#loi-chuc').hide();
+    $('.heart').hide();
+    $('#table').hide();
+    $('#hiding').hide();
+    $('#author').hide();
+    setTimeout(() => {
+      $('#hello').hide(3000);
+      $('#loi-chuc').show(3000);
+    }, 8000);
+    setTimeout(() => {
+      $('#loi-chuc').fadeOut(2500);
+      $('.heart').fadeIn(1000);
+    }, 14000);
+
+    function typeEffect(element, speed) {
+      var text = $(element).text();
+      $(element).html('');
+
+      var i = 0;
+      var timer = setInterval(function () {
+        if (i < text.length) {
+          $(element).append(text.charAt(i));
+          i++;
+        } else {
+          clearInterval(timer);
+        }
+      }, speed);
+    }
+
+    setTimeout(function () {
+      $('.heart').hide(1000);
+      $('#table').slideDown(2000);
+      var speed = 80;
+      var delay = $('#chuc-mung-18').text().length * speed + speed;
+      typeEffect($('#chuc-mung-18'), speed);
+      setTimeout(function () {
+        $('p').css('display', 'inline-block');
+        typeEffect($('p'), speed);
+      }, delay);
+    }, 19000);
+    setTimeout(() => {
+      $('#author').fadeIn(2000);
+    }, 30000);
+  </script>
+</body>
+
+</html>

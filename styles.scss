@@ -1,0 +1,385 @@
+$secondary-color: #ffe221;
+$tertiary-color: #ffffff;
+  
+body {
+  display: flex;
+	justify-content: center;
+  align-items: center;
+  font-family: Arial, Helvetica, sans-serif;
+  
+  #hello {
+    background-image: url(./bg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+  }
+}
+
+.shader {
+  background: black;
+  opacity: 0.6;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.container{
+  width: 600px;
+  height: 220px;
+  position: relative;
+}
+
+h1, h2{
+  font-size: 75px;
+  text-transform: uppercase;
+  
+  
+  span{
+    width: 100%;
+    float: left;
+    color: $tertiary-color;
+    -webkit-clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 80%);
+    clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 80%);
+    transform: translateY(-50px);
+    opacity: 0;
+    animation-name: titleAnimation;
+    animation-timing-function:ease;
+    animation-duration: 4s;
+  }
+}
+h1 span{
+  animation-delay: 0.6s;
+  -webkit-animation-fill-mode: forwards;
+
+  &:first-child{
+    animation-delay: 0.7s;
+
+  }
+
+  &:last-child{
+    color: $secondary-color;
+    animation-delay: 0.5s;
+  }
+}
+
+h2{ 
+  top: 0;
+  position: absolute;
+  
+  span{
+    animation-delay: 4.3s;
+    -webkit-animation-fill-mode: forwards;
+
+    &:first-child{
+      animation-delay: 4.4s;
+
+    }
+
+    &:last-child{
+      color: $secondary-color;
+      animation-delay: 4.2s;
+    }
+  }
+}
+
+.usechrome{
+  font-size: 10px;
+  color: #fff;
+  font-family: helvetica, arial;
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  text-align: center;
+  left: 0;
+}
+
+@keyframes titleAnimation {
+    0% {
+      transform: translateY(-50px);
+      opacity: 0;
+      -webkit-clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 80%);
+      clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 80%);
+  }
+  20% {
+      transform: translateY(0);
+      opacity: 1;
+      -webkit-clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 15%);
+      clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 15%);
+  }
+  80% {
+       transform: translateY(0);
+       opacity: 1;
+      -webkit-clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 15%);
+      clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 15%);
+  }
+  100% {
+       transform: translateY(50px);
+       opacity: 0;
+      -webkit-clip-path: polygon(100% 0, 100% -0%, 0 100%, 0 100%);
+      clip-path: polygon(100% 0, 100% -0%, 0 100%, 0 100%);
+    
+  }
+}
+
+svg {
+  background-image: url(./Happy-Birthday-colorful-candles-balloons_2560x1600.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  display: block;
+  font-size: 4em;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  position: absolute;
+  bottom: 0;
+}
+
+.text-copy {
+  fill: none;
+  stroke: white;
+  stroke-dasharray: 6% 29%;
+  stroke-width: 5px;
+  stroke-dashoffset: 0%;
+  animation: stroke-offset 5.5s infinite linear;
+}
+
+.text-copy:nth-child(1){
+	stroke: #4D163D;
+	animation-delay: -1;
+}
+
+.text-copy:nth-child(2){
+	stroke: #840037;
+	animation-delay: -2s;
+}
+
+.text-copy:nth-child(3){
+	stroke: #BD0034;
+	animation-delay: -3s;
+}
+
+.text-copy:nth-child(4){
+	stroke: #BD0034;
+	animation-delay: -4s;
+}
+
+.text-copy:nth-child(5){
+	stroke: #FDB731;
+	animation-delay: -5s;
+}
+
+@keyframes stroke-offset{
+	100% {stroke-dashoffset: -35%;}
+}
+
+$s : 18px;
+$w : 7px;
+$red: #E53935; 
+$grey: #BDBDBD;
+$bg: #FFEBEE;
+$time: 4s;
+
+@mixin animation($name) {
+    @-webkit-keyframes #{$name} {
+        @content;
+    }
+    @-moz-keyframes #{$name} {
+        @content;
+    }
+    @-o-keyframes #{$name} {
+        @content;
+    }
+    @keyframes #{$name} {
+        @content;
+    }
+}
+
+@mixin heart($color){
+    box-shadow:
+       $s*0 0 0 $w $color,
+       $s*1 0 0 $w $color,
+       $s*2 0 0 $w $color,
+       $s*6 0 0 $w $color,
+       
+       $s*(-1)  $s*1 0 $w $color,
+       $s*0  $s*1 0 $w $color,
+       $s*1  $s*1 0 $w $color,
+       $s*2  $s*1 0 $w $color,
+       $s*3  $s*1 0 $w $color,
+       $s*5  $s*1 0 $w $color,
+       $s*6  $s*1 0 $w $color,
+       $s*7  $s*1 0 $w $color,
+       $s*9  $s*1 0 $w $color,
+       
+       $s*(-1)  $s*2 0 $w $color,
+       $s*0  $s*2 0 $w $color,
+       $s*1  $s*2 0 $w $color,
+       $s*2  $s*2 0 $w $color,
+       $s*3  $s*2 0 $w $color,
+       $s*4  $s*2 0 $w $color,
+       $s*5  $s*2 0 $w $color,
+       $s*6  $s*2 0 $w $color,
+       $s*7  $s*2 0 $w $color,
+       $s*9  $s*2 0 $w $color,
+       
+       $s*(-1)  $s*3 0 $w $color,
+       $s*0  $s*3 0 $w $color,
+       $s*1  $s*3 0 $w $color,
+       $s*2  $s*3 0 $w $color,
+       $s*3  $s*3 0 $w $color,
+       $s*4  $s*3 0 $w $color,
+       $s*5  $s*3 0 $w $color,
+       $s*6  $s*3 0 $w $color,
+       $s*7  $s*3 0 $w $color,
+       $s*8  $s*3 0 $w $color,
+       $s*9  $s*3 0 $w $color,
+       
+       $s*0  $s*4 0 $w $color,
+       $s*1  $s*4 0 $w $color,
+       $s*2  $s*4 0 $w $color,
+       $s*3  $s*4 0 $w $color,
+       $s*4  $s*4 0 $w $color,
+       $s*5  $s*4 0 $w $color,
+       $s*6  $s*4 0 $w $color,
+       $s*7  $s*4 0 $w $color,
+       $s*8  $s*4 0 $w $color,
+       
+       $s*1  $s*5 0 $w $color,
+       $s*2  $s*5 0 $w $color,
+       $s*3  $s*5 0 $w $color,
+       $s*4  $s*5 0 $w $color,
+       $s*5  $s*5 0 $w $color,
+       $s*6  $s*5 0 $w $color,
+       $s*7  $s*5 0 $w $color,
+       
+       $s*2  $s*6 0 $w $color,
+       $s*3  $s*6 0 $w $color,
+       $s*4  $s*6 0 $w $color,
+       $s*5  $s*6 0 $w $color,
+       $s*6  $s*6 0 $w $color,
+       
+       $s*3  $s*7 0 $w $color,
+       $s*4  $s*7 0 $w $color,
+       $s*5  $s*7 0 $w $color,
+       
+       $s*4  $s*8 0 $w $color;
+}
+
+@include animation(complete) {
+  0%,24%{
+    box-shadow:
+       $s*7 $s*(-4) 0 $w $red,
+       $s*8 $s*(-4) 0 $w $red,
+       $s*8  $s*(-3) 0 $w $red,
+       $s*8  $s*(-2) 0 $w $red;
+  }
+  25%,49%{
+    box-shadow:
+       $s*7 $s*(-3) 0 $w $red,
+       $s*8 $s*(-3) 0 $w $red,
+       $s*8  $s*(-2) 0 $w $red,
+       $s*8  $s*(-1) 0 $w $red;
+  }
+   50%,74%{
+    box-shadow:
+       $s*7 $s*(-2) 0 $w $red,
+       $s*8 $s*(-2) 0 $w $red,
+       $s*8  $s*(-1) 0 $w $red,
+       $s*8  $s*0 0 $w $red;
+  }
+   75%,99%{
+    box-shadow:
+       $s*7 $s*(-1) 0 $w $red,
+       $s*8 $s*(-1) 0 $w $red,
+       $s*8  $s*0 0 $w $red,
+       $s*8  $s*1 0 $w $red;
+  }
+  100%{
+    box-shadow:
+       $s*7 $s*0 0 $w $red,
+       $s*8 $s*0 0 $w $red,
+       $s*8  $s*1 0 $w $red,
+       $s*8  $s*2 0 $w $red;
+  }
+}
+
+@include animation(grey){
+  0%,90%{
+     @include heart($grey);
+  }
+}
+
+body{
+  background: $bg;
+  overflow: hidden;
+  
+  .heart{
+     position: absolute;
+     left: 50%;
+     top: 50%;
+     margin-left: -71px;
+     margin-top: -50px;
+     @include heart($red);
+    -webkit-animation: grey $time + 1 linear;
+    -moz-animation: grey  $time + 1 linear;
+    -o-animation: grey  $time + 1 linear;
+     animation: grey $time + 1 linear;
+    
+    .part{
+     position: absolute;
+     left: 50%;
+     top: 50%;
+     box-shadow:
+       $s*7 $s*0 0 $w $red,
+       $s*8 $s*0 0 $w $red,
+       $s*8  $s*1 0 $w $red,
+       $s*8  $s*2 0 $w $red;
+    -webkit-animation: complete $time linear;
+    -moz-animation: complete $time linear;
+    -o-animation: complete $time linear;
+     animation: complete $time linear;
+    }
+  }
+}
+
+#table {
+  width: 100%;
+  margin-top: 50px;
+  font-family: 'Dancing Script', cursive;
+}
+
+#centeralign {
+  width: 100%;
+}
+
+#table h1 {
+  color: red;
+  font-weight: bold;
+  font-size: 5.5em;
+}
+
+#table p {
+  font-size: 2em;
+  margin-left: 100px;
+}
+
+#love {
+  color: red;
+  font-weight: bold;
+}
+
+footer {
+  position: absolute;
+  top: 230px;
+  text-align: center;
+  font-size: 2em;
+}
